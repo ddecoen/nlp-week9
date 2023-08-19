@@ -19,17 +19,20 @@ const dbFileName = "QandA.db" // this should agree with the golang embed
 //go:embed sqldb/QandA.db
 var database embed.FS
 
-func TermPresentEmbed(term string) (string, bool, error) {
+func ValidTermEmbed(term string) (string, bool, error) {
+	// Read the embedded database into memory
 	dbData, err := fs.ReadFile(database, filepath.Join(dbDirName, dbFileName))
 	if err != nil {
-		return "", false, fmt.Errorf("No database present. If forgot to build, check the following:\n1 Go to ./setup and run \"createDB.go\"")
+		return "", false, fmt.Errorf("no database found")
 	}
+
 	// Use the in-memory database driver of SQLite
 	db, err := sql.Open("sqlite", "file::memory:?cache=shared")
 	if err != nil {
 		return "", false, fmt.Errorf("sql.Open failed: %s", err)
 	}
 	defer db.Close()
+
 	// Create a temporary file in the system's temp directory
 	tempFile, err := os.CreateTemp(os.TempDir(), "tempdb-*.sqlite")
 	if err != nil {

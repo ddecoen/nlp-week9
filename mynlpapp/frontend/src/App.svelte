@@ -15,11 +15,6 @@
     "range", "return", "select", "struct", "switch", "type", "var"
   ];
 
-  const sillyTerms = [
-    "blackberry", "tofu", "buffalo", "storm", "vanilla", "elves", "sunshine",
-    "shine", "pizza", "smiley", "jokester", "supernova", "soda", "gusty", "laugh"
-  ];
-
   function evaluateText() {
     console.log("evaluateText function called with input:", inputText);
     CheckTermEmbed(inputText).then(result => {
@@ -27,15 +22,6 @@
         outputText = result;
     });
 }
-
-  function loadSample(isValid) {
-    if (isValid) {
-      inputText = validTerms[Math.floor(Math.random() * validTerms.length)];
-    } else {
-      inputText = sillyTerms[Math.floor(Math.random() * sillyTerms.length)];
-    }
-  }
-
 
 </script>
 
@@ -71,11 +57,6 @@
       margin-right: 20px;
   }
 
-  .sample-buttons {
-      display: flex;
-      flex-direction: column;
-  }
-
   button {
       margin-bottom: 20px;
   }
@@ -102,16 +83,12 @@
        <div>
            <h2>Week 9 Assignment: Access A Database for Natual Language Processing</h2>
            <p>
-               This assignment mimicks a desktop application that allows the user to ask questions of an LLM and receive a response.  The functionality of posing a question to an LLM and receiving an answer has been replaced with a database lookup.
+               Instructions - please enter a term in single quotes. The app is case-sensitive as well.
             </p>
         </div>
     </div>
     <div class="input-section">
         <textarea bind:value={inputText} placeholder="Enter your text here..."></textarea>
-        <div class="sample-buttons">
-            <button on:click={() => loadSample(true)}>Valid Term</button>
-            <button on:click={() => loadSample(false)}>Invalid Term</button>
-        </div>
     </div>
     <div class="button-container">
         <button on:click={evaluateText}>Evaluate</button>

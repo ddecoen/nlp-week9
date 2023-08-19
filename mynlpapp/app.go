@@ -29,12 +29,12 @@ func (a *App) Greet(name string) string {
 }
 
 func (a *App) CheckTermEmbed(term string) string {
-	answer, exists, err := backend.TermPresentEmbed(term)
+	answer, exists, err := backend.ValidTermEmbed(term)
 	if err != nil {
 		return fmt.Sprintf("Error: %s", err.Error())
 	}
 	if exists {
 		return fmt.Sprintf("For term '%s', found answer: %s", term, answer)
 	}
-	return fmt.Sprintf("No answer found for term '%s'", term)
+	return fmt.Sprintf("No answer found for term '%s', please select from the valid term list.", term)
 }
