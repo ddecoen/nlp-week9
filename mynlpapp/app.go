@@ -1,9 +1,10 @@
 package main
 
 import (
-	"changeme/backend"
 	"context"
 	"fmt"
+
+	"github.com/ddecoen/nlp-week9/mynlpapp/backend"
 )
 
 // App struct

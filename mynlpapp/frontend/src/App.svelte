@@ -1,7 +1,9 @@
 <script>
-  import logo from './assets/images/logo-universal.png'
-  import {Greet} from '../wailsjs/go/main/App.js'
-
+ // import logo from './assets/images/logo-universal.png'
+ // import {Greet} from '../wailsjs/go/main/App.js'
+  import {CheckTermEmbed} from '../wailsjs/go/main/App.js'
+// @ts-ignore
+  import helperImage from './assets/images/helperImage.png'
 
 
   let inputText = "";
@@ -14,9 +16,10 @@
   ];
 
   const sillyTerms = [
-    "blueberry", "dreams", "unicorn", "rainbow", "chocolate", "fairy", "moonbeam",
-    "sparkle", "glitter", "bubble", "whimsy", "twinkle", "fizz", "flutter", "giggle"
+    "blackberry", "tofu", "buffalo", "storm", "vanilla", "elves", "sunshine",
+    "shine", "pizza", "smiley", "jokester", "supernova", "soda", "gusty", "laugh"
   ];
+
   function evaluateText() {
     console.log("evaluateText function called with input:", inputText);
     CheckTermEmbed(inputText).then(result => {
@@ -25,7 +28,7 @@
     });
 }
 
-function loadSample(isValid) {
+  function loadSample(isValid) {
     if (isValid) {
       inputText = validTerms[Math.floor(Math.random() * validTerms.length)];
     } else {
@@ -36,22 +39,70 @@ function loadSample(isValid) {
 
 </script>
 
-<main>
-  <div class="container">
-    <div class="header-section">
-        <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img src={heroImage} alt="Hero Image" class="hero-image" />
-        <div>
-            <h2>Week 9 Assignment: Access A Database</h2>
-            <p>
-                This assignment mimicks a desktop application that allows the user to ask questions of an LLM and receive a response.  The functionality of posing a question to an LLM and receiving an answer has been replaced with a database lookup.
-            </p>
-            <h2>How to Use</h2>
-            <p>
-                Enter text and click evaluate.  If the term exists in the database, the definition will be returned.  If the term does not exist in the database, an error message will be returned.  Note that the database search is case sensitive and requires an exact match.
-            </p>
-            <p>
-              The "Valid Term" button on the right will randomly select a term that exists in the database.  Note this has been hard-coded.
+<style>
+  .container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .header-section {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+}
+
+
+  .helper-image {
+    max-width: 200px; 
+    margin-right: 20px;
+  }
+
+  .input-section {
+      display: flex;
+      align-items: start;
+      width: 90%;
+  }
+
+  textarea {
+      flex: 1;
+      height: 200px;
+      margin-right: 20px;
+  }
+
+  .sample-buttons {
+      display: flex;
+      flex-direction: column;
+  }
+
+  button {
+      margin-bottom: 20px;
+  }
+
+  .output {
+      width: 90%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      white-space: pre-line;
+      text-align: left; 
+  }
+
+  .rules {
+      text-align: left;
+      font-size: 0.8rem;
+  }
+</style>
+
+
+<div class="container">
+  <div class="header-section">
+      <!-- svelte-ignore a11y-img-redundant-alt -->
+       <img src={helperImage} alt="Helper Image" class="helper-image" />
+       <div>
+           <h2>Week 9 Assignment: Access A Database for Natual Language Processing</h2>
+           <p>
+               This assignment mimicks a desktop application that allows the user to ask questions of an LLM and receive a response.  The functionality of posing a question to an LLM and receiving an answer has been replaced with a database lookup.
             </p>
         </div>
     </div>
@@ -75,63 +126,3 @@ function loadSample(isValid) {
       </p>
   </div>
   </div>
-</main>
-
-<style>
-
-  #logo {
-    display: block;
-    width: 50%;
-    height: 50%;
-    margin: auto;
-    padding: 10% 0 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-origin: content-box;
-  }
-
-  .result {
-    height: 20px;
-    line-height: 20px;
-    margin: 1.5rem auto;
-  }
-
-  .input-box .btn {
-    width: 60px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 3px;
-    border: none;
-    margin: 0 0 0 20px;
-    padding: 0 8px;
-    cursor: pointer;
-  }
-
-  .input-box .btn:hover {
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    color: #333333;
-  }
-
-  .input-box .input {
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 10px;
-    background-color: rgba(240, 240, 240, 1);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .input-box .input:hover {
-    border: none;
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  .input-box .input:focus {
-    border: none;
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-</style>

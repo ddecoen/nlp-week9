@@ -1,4 +1,4 @@
-module changeme
+module github.com/ddecoen/nlp-week9/mynlpapp
 
 go 1.18
 
