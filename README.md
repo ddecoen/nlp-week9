@@ -9,7 +9,7 @@ Create app for natural language processing with wails and sql database
 3. Leverage the logic provided by Dr. Miller to create a SQL database (https://github.com/ThomasWMiller/jump-start-sqlite/tree/main)  
 4. Once the database is created, it needs to be embedded in the Wails app  
     a. Hat tip to Wes West for the suggestion. See his example code below:  
-    ![Example](/Wes_West.png)  
+    ![Example](/Example.png)  
     b. As I was still having some problems, I just created the database with the coded provided by Dr. Miller in number 3 above. I then copied that DB into the backend folder so it could be queried.  
     c. Made sure instructions were added to the front-end so the user could accurately access the data in the database.  
 
