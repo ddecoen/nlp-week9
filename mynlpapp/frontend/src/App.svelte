@@ -105,12 +105,6 @@
     padding-bottom: 20px; /* Optional: Add some padding */
   }
 
-  .horizontal-list {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-  }
-
   .vertical-column {
     column-count: 3; /* Adjust the number of columns as needed */
     column-gap: 20px; /* Adjust the gap between columns */
